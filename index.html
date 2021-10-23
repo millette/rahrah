@@ -3,18 +3,20 @@
   <head>
   </head>
   <body>
-<svg xmlns="http://www.w3.org/2000/svg" width="250" height="250">
-  <use href="whole-vest.svg#i2-lower-pockets" />
+<svg xmlns="http://www.w3.org/2000/svg">
+  <use href="whole-pants.svg#iboxers" />
 </svg>
-<p>i2-lower-pockets</p>
+<p></p>
     <div style="max-width: 200px" id="pal"></div>
 <script>
   const bod = document.querySelector("#pal")
 
   async function paletteVests() {
     const el2 = document.querySelector("use")
+    const u = new URL(el2.getAttribute("href"), "http://localhost/").pathname.slice(1)
+
     const p = document.querySelector("p")
-    const res = await fetch("whole-vest.svg")
+    const res = await fetch(u)
     const txt = await res.text()
     const parser = new DOMParser()
     const svgDoc = parser.parseFromString(txt, "image/svg+xml")
@@ -22,7 +24,7 @@
     let i = 0
     symbols.forEach((x) => {
       const id = x.getAttribute("id")
-      if (id.indexOf("_of_") !== -1) return // skip multilayor
+      // if (id.indexOf("_of_") !== -1) return // skip multilayor
       ++i
   
       const el = document.createElementNS("http://www.w3.org/2000/svg", "svg")
@@ -33,7 +35,7 @@
       el.innerHTML= x.innerHTML
       el.onmouseover = function () {
         p.innerText = id
-        el2.setAttribute("href", `whole-vest.svg#${id}`)
+        el2.setAttribute("href", `${u}#${id}`)
       }
       bod.appendChild(el)
     })
