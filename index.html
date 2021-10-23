@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <script src="svg4everybody.min.js"></script>
-    <script>svg4everybody(); // run it now or whenever you are ready</script>
   </head>
   <body>
 <svg xmlns="http://www.w3.org/2000/svg" width="250" height="250">
@@ -41,30 +39,6 @@
     })
   }
 
-  /*
-  async function rotateVests() {
-    const el = document.querySelector("use")
-    const p = document.querySelector("p")
-
-    const res = await fetch ("whole-vest.svg")
-    const txt = await res.text()
-    const parser = new DOMParser()
-    const svgDoc = parser.parseFromString(txt, "image/svg+xml")
-    const symbols = svgDoc.querySelectorAll('symbol')
-    let i = 0
-    symbols.forEach((x) => {
-      const id = x.getAttribute("id")
-      if (id.indexOf("_of_") !== -1) return // skip multilayor
-      ++i
-      setTimeout((g) => {
-        p.innerText = g
-        el.setAttribute("href", `whole-vest.svg#${g}`)
-      }, 200 * i, id)
-    })
-  }
-
-  rotateVests().then(console.log).catch(console.error)
-  */
   paletteVests().then(console.log).catch(console.error)
 </script>
 </body>
