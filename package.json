@@ -1,0 +1,15 @@
+{
+  "name": "occam",
+  "version": "0.0.1",
+  "main": "main.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "fast-glob": "^3.2.7"
+  },
+  "devDependencies": {
+    "svgo": "^2.7.0"
+  }
+}
